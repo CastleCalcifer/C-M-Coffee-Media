@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="app.js"></script>
+    <title>Book and a Brew</title>
+  </head>
+  <body>
+    {% extends "base.html" %}
+    {% block content %}
+    <div class="imageContainer">
+        <img src="https://images.pexels.com/photos/2074130/pexels-photo-2074130.jpeg" alt="image">
+        <div class="overlayText">Coffee that <br> tells a story
+        <a href="{{url_for('CoffeeList')}}"><p class="coffeeButton">Shop Coffee</p></a>
+        </div>
+    </div>
+    <h2 id="greeting"></h2>
+    <h2 class="popularPicksLabel">Popular Picks</h2>
+    <div class="popular">
+        <div class="popularCoffee">
+          {{popular1}}
+          <!-- <a href="{{url_for('SecondBreakfast')}}"><img src="https://m.media-amazon.com/images/I/81nV6x2ey4L._AC_UF1000,1000_QL80_.jpg">
+            <p>Second Breakfast</p>
+            </a> -->
+        </div>
+        <div class="popularCoffee">
+          {{popular2}}
+          <!-- <a href="{{url_for('TheRoastOfLeaves')}}"><img src="https://m.media-amazon.com/images/I/51QoJuZLrlL._AC_UF1000,1000_QL80_.jpg">
+            <p>The Roast of Leaves</p>
+          </a> -->
+        </div>
+        <div class="popularCoffee">
+          {{popular3}}
+        </div>
+    </div>
+    {% endblock %}
+  </body>
+</html>

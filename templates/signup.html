@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+    <div class="requirements">
+        <h2>Register</h2>
+        <p>Password must meet the follow criteria:</p>
+        <ul>
+            <li>Must have an upper case letter</li>
+            <li>Must have a lower case letter</li>
+            <li>Must end in a number</li>
+        </ul>
+        {{error_message}}
+    </div>
+    <div class="container">
+        <form action="#" method ="POST">
+            {{form.hidden_tag()}}
+            <div class="form-group row">
+                <div class="col-xs-3">
+                    <!-- <label for="username"> First Name:</label> -->
+                    {{form.first_name.label}}{{form.first_name}}
+                </div>
+                <div class="col-xs-3">
+                    <!-- <label for="username"> Last Name:</label> -->
+                    {{form.last_name.label}}{{form.last_name}}
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-3">
+                    <!-- <label for="email"> Email:</label> -->
+                    {{form.email.label}}{{form.email}}
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-3">
+                    <!-- <label for="password"> Password:</label> -->
+                    {{form.password.label}}{{form.password}}
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-3">
+                    <!-- <label for="confirmPassword"> Confirm Password:</label> -->
+                    {{form.confirm_password.label}}{{form.confirm_password}}
+                </div>
+            </div>
+            {{form.submit}}
+        </form>
+    </div>
+    {% endblock %}
+</body>
+
+</html>

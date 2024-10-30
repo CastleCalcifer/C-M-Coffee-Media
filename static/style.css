@@ -1,0 +1,274 @@
+nav{
+display: inline;
+list-style-type: none;
+}
+
+
+h3,h2{
+font-family: Lusitana;
+}
+
+body {
+margin: 0;
+padding: 0;
+}
+
+a{
+text-decoration: none;
+color: black;
+}
+
+.navigation{
+display: inline-block;
+padding-left: 80px;
+
+}
+.logo{
+text-align: left;
+padding-left: 60px;
+padding-right: 250px;
+font-family: IM Fell DW Pica SC;
+font-size: 28px;
+}
+
+.headerText{
+padding-right: 68px;
+text-align: right;
+font-family: Alata;
+font-weight:300;
+font-size: 18px;
+}
+.header{
+background-color: #E6CCA9;
+height: 80px;
+}
+
+.imageContainer {
+position: relative;
+display: inline-block;
+}
+.imageContainer::before{
+content: "";
+display: block;
+position: absolute;
+top: 0;
+left: 0;
+width: 211.5%;
+height: 100%;
+background-color: rgba(33, 20, 1, 60%);
+}
+.imageContainer img {
+display: block;
+width: 211.5%;
+height: 600px;
+}
+.coffeeButton{
+background-color: #E6CCA9;
+font-family: Alata;
+font-size: 25px;
+color:black;
+width: 50%;
+height: 60px;
+padding: 10px;
+padding-bottom: 20px;
+text-align: center;
+}
+
+.overlayText {
+position: absolute;
+top: 50%; 
+left: 50%; 
+transform: translate(-90%, -75%); 
+color: #fff; 
+padding: 10px 20px; 
+font-size: 75px; 
+text-align: center;
+font-family: Lusitana;
+}
+
+.popular{
+text-align: center;
+/* border: 1px solid lightgray; */
+}
+
+.popularPicksLabel{
+    padding-left: 365px;
+    padding-bottom: 20px;
+}
+
+.popularCoffee{
+display: inline-block;
+padding-right: 10px;
+padding-left: 10px;
+padding-top: 10px;
+margin-right: 125px;
+margin-left: 125px;
+/* border: 1px solid lightgray; */
+font-family: Alata;
+}
+.popularCoffee img{
+width: 100%;
+height: 300px;
+}
+
+.coffeeContainer{
+text-align: center;
+/* border: 1px solid lightgray; */
+}
+.coffeeContainer h2{
+text-align: left;
+font-size: 36px;
+padding-left: 300px;
+}
+.coffeeElement{
+display: inline-block;
+padding-right: 10px;
+padding-left: 10px;
+padding-top: 10px;
+margin-right: 125px;
+margin-left: 125px;
+/* border: 1px solid lightgray; */
+font-family: Alata;
+}
+.coffeeElement img{
+width: 100%;
+height: 300px;
+}
+.description{
+font-style: italic;
+}
+
+.coffeeImageContainer {
+position: relative;
+display: inline-block;
+}
+.coffeeImageContainer::before{
+content: "";
+display: block;
+position: absolute;
+top: 0;
+left: 0;
+width: 253.7%;
+height: 100%;
+background-color: rgba(33, 20, 1, 60%);
+}
+.coffeeImageContainer img {
+display: block;
+width: 253.7%;
+height: 500px;
+}
+
+.coffeePage{
+/* border: 1px solid lightgray; */
+display: grid;
+align-items: center; 
+grid-template-columns: 1fr 1fr 1fr;
+column-gap: 10px;
+
+}
+.coffeePage h2{
+text-align: left;
+font-size: 36px;
+padding-left: 300px;
+}
+.coffeePicture{
+display: inline-block;
+padding-right: 10px;
+padding-left: 10px;
+padding-top: 10px;
+margin-right: 125px;
+margin-left: 125px;
+/* border: 1px solid lightgray; */
+font-family: Alata;
+}
+.coffeePicture img{
+width: 100%;
+height: 500px;
+}
+.coffeeText{
+font-family: Alata;
+}
+
+.title{
+padding-left: 135px;
+}
+
+.cart {
+text-align: center;
+}
+
+.cartTitle{
+text-align: center;
+font-family: Lusitana;
+}
+
+.requirements{
+padding-left: 750px;
+}
+
+.error{
+padding-left: 750px;
+color: red;
+}
+
+.container{
+padding-left: 400px;
+}
+
+.errorMessage{
+color: red
+}
+
+.cartAttributes{
+text-align: center;
+font-family: Lusitana;
+}
+
+.table th, .table td{
+padding: 10px 20px;
+text-align: center;
+}
+
+.table{
+width: 100%; /* Ensure table takes full width of container */
+border-collapse: collapse; /* Ensure no space between table cells */
+
+}
+
+.yourCart{
+padding: 0 100px;
+}
+
+.subTotalRow{
+    padding-top: 20px;
+}
+
+.subTotal{
+    padding-top: 20px;
+}
+
+.comments{
+display: inline-block;
+padding-right: 10px;
+padding-left: 10px;
+padding-top: 10px;
+margin-right: 0px;
+margin-left: 400px;
+font-family: Alata;
+}
+
+.columnHeader{
+    padding: 20px 200px;
+}
+
+.ordersDiv{
+    padding: 20px 150px;
+}
+
+.commentsHeader{
+    padding-left: 600px;
+}
+
+.comments{
+    padding-left: 200px;
+}

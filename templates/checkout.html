@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkout</title>
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+    <div>
+      {% if error_message %}
+      <h1>{{error_message}}</h1>
+      {% else %}
+      <h1><strong>Thank you for your purchase!</strong></h1>
+      <h1><strong>Your Order Number is #{{order_number}}</strong></h1>
+      {% endif %}
+    </div>
+    <div class="ordersDiv">
+      <table>
+        <thead>
+          <tr>
+            <th class="orderColumnHeader">Product</th>
+            <th class="orderColumnHeader">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in cart_items %}
+          <tr>
+            {% if item.coffee_id %}
+              <td>{{ coffee_class.query.get(item.coffee_id).coffeeName }}</td>
+            {% elif item.book_id %}
+              <td>{{ book_class.query.get(item.book_id).bookName }}</td>
+            {% elif item.game_id %}
+              <td>{{ game_class.query.get(item.game_id).gameName }}</td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+          <tr>
+            <td></td>
+            <td>{{ "$%.2f"|format(total) }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <form action="{{ url_for('delete_cart_items') }}" method="POST">
+        <input type="submit" value="Confirm Your Order">
+      </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

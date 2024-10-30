@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css?family=IM Fell DW Pica SC" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Alata" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lusitana" rel="stylesheet">
+  <title>Book and a Brew</title>
+</head>
+
+<body>
+  {% extends "base.html" %}
+  {% block content%}
+  <cart-items class="cart">
+    <div class="yourCart">
+      <h2 class="cartTitle">Your Cart</h2>
+      <a href="{{url_for('CoffeeList')}}">Continue Shopping</a>
+    </div>
+    <div class="cartAttributes">
+      <table>
+        <thead>
+          <tr>
+            <th class="columnHeader">Product</th>
+            <th class="columnHeader">Price</th>
+            <th class="columnHeader">Quantity</th>
+            <th class="columnHeader">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- The for loops in the body create the item sub totals -->
+          {% for item in cart_items %}
+            <tr>
+              {% if item.coffee_id %}
+                    <td>{{ coffee_class.query.get(item.coffee_id).coffee_name }}</td>
+                {% elif item.book_id %}
+                    <td>{{ book_class.query.get(item.book_id).book_name }}</td>
+                {% elif item.game_id %}
+                    <td>{{ game_class.query.get(item.game_id).game_name }}</td>
+                {% endif %}
+                <td>{{ '%0.2f'|format(item.price) }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ '%0.2f'|format(item.quantity * item.price) }}</td>
+                {% if item.coffee_id %}
+                <td><form action="{{ url_for('delete_coffee', coffee_id=item.coffee_id) }}" method="POST">
+                  <input type="submit" value="Delete">
+                </form></td>
+                {% elif item.book_id %}
+                <td><form action="{{ url_for('delete_book', book_id=item.book_id) }}" method="POST">
+                  <input type="submit" value="Delete">
+                </form></td>
+                {% elif item.game_id %}
+                <td><form action="{{ url_for('delete_game', game_id=item.game_id) }}" method="POST">
+                  <input type="submit" value="Delete">
+                </form></td>
+                {% endif %}
+            </tr>
+          {% endfor%}
+          <tr class="subTotalRow">
+            <td class="subTotal"><strong>Sub Total</strong></td>
+            <td></td>
+            <td></td>
+            <td class="subTotal"><strong>{{ "$%.2f"|format(total) }}</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      {% if cart_items %}
+      <form action="{{ url_for('checkout')}}" method="POST">
+        <input type="submit" value="Checkout">
+      </form>
+      {% endif %}
+    </div>
+  </div>
+  </cart-items>
+  {% endblock %}
+</body>
+</html>

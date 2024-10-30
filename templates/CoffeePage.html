@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="{{url_for('static', filename='sort.js')}}"></script>
+  <title>Book and a Brew</title>
+
+</head>
+
+<body onload="house()">
+  {% extends "base.html" %}
+  {% block content %}
+  <h2 class="title">{{coffee_name}}</h2>
+  <div class="coffeePage">
+    <div class="coffeePicture">
+      <img src={{coffee_image}}>
+    </div>
+    <div class="coffeeText">
+      <p id="coffeeDescription"> {{coffee_description}}<br></p>
+      <p>Current Favorites: {{fav_number}}</p>
+          {% if current_user.is_authenticated %}
+          <form action="#" method="post">
+            {{ fav_unfav_button.hidden_tag() }}
+            {{ fav_unfav_button.submit }}
+          </form>
+          {% endif %}      <div class="comments">
+
+      </div>
+
+          <!-- Form to add items into the cart -->
+          <form action="#" method="POST">
+            {{ drop_down.hidden_tag() }}
+            {{ drop_down.product_choice.label }} {{ drop_down.product_choice }}
+            {{ drop_down.submit }}
+          </form>
+
+          <form action="#" method="POST">
+            {{ comment_form.hidden_tag() }}
+            <div>
+              {{ comment_form.summary.label }}
+            </div>
+            <div>
+              {{ comment_form.summary }}
+            </div>
+            <div>
+              {{ comment_form.comment.label }}
+            </div>
+            <div>
+              {{ comment_form.comment }}
+            </div>
+              {{ comment_form.submit }}
+          </form>
+
+    </div>
+  </div>
+  <h2 class="commentsHeader">Comments</h2>
+  {% for comment in user_comments_list%}
+  <div class="comments">
+    <div>{{comment.summary}}</div>
+    <div>{{comment.comment}}</div>
+  </div>
+  <br>
+  {% endfor %}
+  {% endblock %}
+</body>
+</html>
